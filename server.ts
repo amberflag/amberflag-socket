@@ -1,6 +1,5 @@
 import { createClient } from '@supabase/supabase-js'
 import { Server } from 'socket.io'
-import eiows from 'eiows'
 import { createServer } from 'http'
 import Koa from 'koa'
 import cors from '@koa/cors'
@@ -47,7 +46,6 @@ const app = new Koa()
 app.use(cors())
 const httpServer = createServer(app.callback())
 const io = new Server(httpServer, {
-  wsEngine: eiows.Server,
   cors: { origin: '*' }
 })
 
